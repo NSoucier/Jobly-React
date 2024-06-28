@@ -1,0 +1,27 @@
+#nav {
+    padding-bottom: 35px;
+    border-bottom: 2px solid rgba(88, 0, 160, 0.908);
+}
+
+#brand {
+    float: left;
+    font-size: 2rem;
+    margin-top: -15px;
+    margin-left: 20px;
+}
+
+#route {
+    float: left;
+    margin-left: 25px;
+}
+
+#login {
+    float: right;
+}
+
+#signup {
+    float: right;    
+    margin: 0 25px;
+}
+
+
