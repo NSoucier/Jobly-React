@@ -13,15 +13,21 @@ function Nav({ currentUser, logout }) {
         <span id="brand">
           <Link to="/">Jobly</Link>
         </span>
-        <span id="route">
-          <Link to="/companies">Companies</Link>
-        </span>
-        <span id="route">
-          <Link to="/jobs">Jobs</Link>
-        </span>
 
         {currentUser ? (
           <>
+
+          </>
+        ) : ''}
+
+        {currentUser ? (
+          <>
+            <span id="route">
+              <Link to="/companies">Companies</Link>
+            </span>
+            <span id="route">
+              <Link to="/jobs">Jobs</Link>
+            </span>
             <span id="signup">
               <Link to="/profile">{currentUser}</Link>
             </span>

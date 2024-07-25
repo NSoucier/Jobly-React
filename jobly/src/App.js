@@ -14,6 +14,7 @@ import React, { useState } from "react";
 
 function App() {
   const [ currentUser, setCurrentUser ] = useState(null);
+  const [ userInfo, setUserInfo ] = useState(null);
 
   async function login(user) {
     try {
@@ -35,6 +36,7 @@ function App() {
     try {
       let token = await JoblyApi.signup(user);
       if (token) {
+        console.log('token', token)
         setCurrentUser(user.username);
         return 'success'
       }
@@ -43,17 +45,27 @@ function App() {
     }
   }
 
+  async function getUser(username) {
+    try {
+      const userInfo = await JoblyApi.getUser(username);
+      console.log(userInfo);
+      return userInfo
+    } catch(err) {
+
+    }
+  }
+
   return (
     <div className="App">
       <Nav currentUser={currentUser} logout={logout}/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/companies" element={<CompanyList />} />
-        <Route path="/companies/:handle" element={<CompanyDetails />} />
-        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/" element={<Home user={currentUser} />} />
+        <Route path="/companies" element={<CompanyList user={currentUser} />} />
+        <Route path="/companies/:handle" element={<CompanyDetails user={currentUser} />} />
+        <Route path="/jobs" element={<Jobs user={currentUser}/>} />
         <Route path="/login" element={<Login login={login}/>} />
         <Route path="/signup" element={<SignUp signup={signup}/>} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile user={currentUser} getUser={getUser} />} />
       </Routes>
     </div>
   );

@@ -1,8 +1,12 @@
+import './Home.css';
 
-
-function Home() {
+function Home({ user }) {
     return (
-        <p>Welcome Home...</p>
+        <>
+            <h2 className='welcome'>{ user ? `Welcome back to the hunt, ${user}!` : 'Welcome to the hunt!'}</h2>
+            {/* <h5 className='welcome'>Please login or sign up to see all jobs and companies.</h5> */}
+        </>
+
     )
 };
 

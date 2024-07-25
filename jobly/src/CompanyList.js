@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import JoblyApi from "./api";
 import { Button, Card, CardBody, CardSubtitle, CardTitle, Input } from 'reactstrap';
 
 // let comps = await JoblyApi.getCompanies();
 // console.log('companies:', comps)
 
-function CompanyList() {
+function CompanyList({ user }) {
     const [ searchFor, setSearchFor ] = useState('');
     const [ comps, setComps ] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(function showComps() {
+        if (!user) {
+            navigate("/login");
+        }
+        
         async function getComps() {
             setComps(await JoblyApi.getCompanies())
         }

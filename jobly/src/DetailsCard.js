@@ -1,17 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import JoblyApi from "./api";
 import JobList from "./JobList";
 import "./DetailsCard.css";
 
 
-function CompanyDetails() {
+function CompanyDetails({ user }) {
     const [ company, setCompany ] = useState(null);
     const { handle } = useParams();
+    const navigate = useNavigate();
 
     console.log(handle)
 
     useEffect(function getDetailsAndJobs() {
+        if (!user) {
+            navigate("/login");
+        }
+
         async function getDetails() {
             setCompany(await JoblyApi.getCompany(handle));
         }
@@ -19,8 +24,7 @@ function CompanyDetails() {
         getDetails();
     }, [handle]);
 
-    console.log(company);
-    if (!company) return <p>nothin'</p>
+    if (!company) return <p></p>
 
     return (
         <>

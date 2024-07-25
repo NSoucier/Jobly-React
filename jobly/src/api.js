@@ -65,12 +65,21 @@ class JoblyApi {
       let res = await this.request('auth/register', user, 'post');
       return res.token
     }
+
+    /** get current user details */
+    static async getUser(username) {
+      let res = await this.request(`users/${username}`);
+      return res.user
+    }    
+
+    /** update user profile */
+    static async update(username, data) {
+      let res = await this.request(`users/${username}`, data, 'patch');
+      return res.user
+    }
 }
 
-// for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
-
+// token ("joeshmoe" / "password")
+JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvZXNobW9lIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcyMTkzMjIxM30.6hCT5CzXhR-q6bLi0OIb8MQCR9rn1pUDMybmFX8q9u4";
 
 export default JoblyApi;

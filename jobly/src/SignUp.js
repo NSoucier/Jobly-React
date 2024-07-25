@@ -6,11 +6,11 @@ import './Form.css';
 function SignUp({ signup }) {
   const navigate = useNavigate(); 
   const [ errors, setErrors ] = useState([]);                               
-  const [ user, setUser ] = useState({username: 'testuser',
-                                password: 'password',
-                                firstName: 'firstN',
-                                lastName: 'lastN', 
-                                email: 'e@mail.com'});
+  const [ user, setUser ] = useState({username: '',
+                                password: '',
+                                firstName: '',
+                                lastName: '', 
+                                email: ''});
 
 
   
