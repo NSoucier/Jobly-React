@@ -18,9 +18,12 @@ function App() {
   async function login(user) {
     try {
       let token = await JoblyApi.login(user);
-      if (token) setCurrentUser('joe')
+      if (token) {
+        setCurrentUser(user.username);
+        return 'success'
+      }
     } catch (err) {
-
+      return err
     }
   }
 
@@ -30,10 +33,13 @@ function App() {
 
   async function signup(user) {
     try {
-      let token = await JoblyApi.login(user);
-      if (token) setCurrentUser('joe')
+      let token = await JoblyApi.signup(user);
+      if (token) {
+        setCurrentUser(user.username);
+        return 'success'
+      }
     } catch (err) {
-
+      return(err)
     }
   }
 
