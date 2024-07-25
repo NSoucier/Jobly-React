@@ -1,6 +1,9 @@
 #nav {
+    padding-top: 20px;
     padding-bottom: 35px;
-    border-bottom: 2px solid rgba(88, 0, 160, 0.908);
+    margin-top: 0;
+    border-bottom: 2px solid rgba(121, 3, 216, 0.908);
+    background-color: white;
 }
 
 #brand {
@@ -23,5 +26,6 @@
     float: right;    
     margin: 0 25px;
 }
+
 
 

@@ -1,7 +1,12 @@
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
-function Nav({ loggedIn }) {
+function Nav({ currentUser, logout }) {
+
+  function logoutUser() {
+    logout();
+  }
+
   return (
     <>
       <p id="nav">
@@ -15,13 +20,13 @@ function Nav({ loggedIn }) {
           <Link to="/jobs">Jobs</Link>
         </span>
 
-        {loggedIn ? (
+        {currentUser ? (
           <>
             <span id="signup">
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile">{currentUser}</Link>
             </span>
             <span id="login">
-              <Link to="/">Logout</Link>
+              <Link to="/" onClick={logout}>Logout</Link>
             </span>
           </>
         ) : (

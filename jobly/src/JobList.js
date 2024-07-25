@@ -1,8 +1,13 @@
+import JobCard from "./JobCard";
 
-
-function JobList() {
+function JobList({ jobs }) {
+    console.log('here', jobs)
     return (
-        <p>List all jobs...</p>
+        <>
+            {jobs.map((job) => (
+                <JobCard job={job} key={job.id}/>
+            ))}
+        </>
     )
 };
 
