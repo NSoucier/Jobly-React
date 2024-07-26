@@ -2,3 +2,12 @@
     color: rgb(255, 66, 66);
     text-shadow: 3px 3px 5px rgb(0, 0, 0);
 }
+
+h4 {
+    margin-bottom: 40px;
+}
+
+#signup-form {
+    width: 40%;
+    margin: 20px auto;
+}

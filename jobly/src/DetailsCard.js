@@ -10,8 +10,6 @@ function CompanyDetails({ user }) {
     const { handle } = useParams();
     const navigate = useNavigate();
 
-    console.log(handle)
-
     useEffect(function getDetailsAndJobs() {
         if (!user) {
             navigate("/login");

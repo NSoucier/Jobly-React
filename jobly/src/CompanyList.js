@@ -3,9 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import JoblyApi from "./api";
 import { Button, Card, CardBody, CardSubtitle, CardTitle, Input } from 'reactstrap';
 
-// let comps = await JoblyApi.getCompanies();
-// console.log('companies:', comps)
-
 function CompanyList({ user }) {
     const [ searchFor, setSearchFor ] = useState('');
     const [ comps, setComps ] = useState([]);
@@ -15,7 +12,7 @@ function CompanyList({ user }) {
         if (!user) {
             navigate("/login");
         }
-        
+
         async function getComps() {
             setComps(await JoblyApi.getCompanies())
         }
