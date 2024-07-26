@@ -11,7 +11,7 @@ function Nav({ currentUser, logout }) {
     <>
       <p id="nav">
         <span id="brand">
-          <Link to="/">Jobly</Link>
+          <Link to="/" id="nav-link">Jobly</Link>
         </span>
 
         {currentUser ? (
@@ -23,25 +23,25 @@ function Nav({ currentUser, logout }) {
         {currentUser ? (
           <>
             <span id="route">
-              <Link to="/companies">Companies</Link>
+              <Link to="/companies" id="nav-link">Companies</Link>
             </span>
             <span id="route">
-              <Link to="/jobs">Jobs</Link>
+              <Link to="/jobs" id="nav-link">Jobs</Link>
             </span>
             <span id="signup">
-              <Link to="/profile">{currentUser}</Link>
+              <Link to="/profile" id="nav-link">{currentUser}</Link>
             </span>
             <span id="login">
-              <Link to="/" onClick={logout}>Logout</Link>
+              <Link to="/" onClick={logout} id="nav-link">Logout</Link>
             </span>
           </>
         ) : (
           <>
             <span id="signup">
-              <Link to="/signup">Sign up</Link>
+              <Link to="/signup" id="nav-link">Sign up</Link>
             </span>
             <span id="login">
-              <Link to="/login">Login</Link>
+              <Link to="/login" id="nav-link">Login</Link>
             </span>
           </>
         )}

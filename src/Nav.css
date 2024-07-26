@@ -13,6 +13,11 @@
     margin-left: 20px;
 }
 
+#nav-link {
+    color: rgba(121, 3, 216, 0.908);
+    text-decoration: none;
+}
+
 #route {
     float: left;
     margin-left: 25px;
