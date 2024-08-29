@@ -16,7 +16,6 @@ function SignUp({ signup }) {
     evt.preventDefault();
     user[evt.target.name] = evt.target.value
     setUser(user)
-    console.log(user)
   }
 
   async function handleClick(evt) {
